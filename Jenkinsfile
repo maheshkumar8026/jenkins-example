@@ -21,6 +21,8 @@ pipeline {
             steps {
                 script {
                     artifact = docker.build("praveenellaiyan/jenkins-springboot-app:myapp")
+                    dockerImage.run("-v ${env.WORKSPACE}/src:/app/src")
+
                 }
             }
         }
